@@ -10,11 +10,20 @@ Dependency:
 
 Example:
     python ipynb_to_pdf.py --source ~/Documents/EECS504_files/psets/pset1/submissions --target ~/Documents/EECS504_files/psets/pset1/pdfs
+    python ipynb_to_pdf.py --source ~/Documents/EECS504_files/psets/pset5/submissions --target ~/Documents/EECS504_files/psets/pset5/pdfs
+    python ipynb_to_pdf.py --source ~/Documents/EECS504_files/psets/pset5/submissions_renamed --target ~/Documents/EECS504_files/psets/pset5/pdfs
+    python ipynb_to_pdf.py --source ~/Documents/EECS504_files/psets/pset6/submissions_renamed --target ~/Documents/EECS504_files/psets/pset6/pdfs
+    python ipynb_to_pdf.py --source ~/Documents/EECS504_files/psets/pset7/submissions_renamed --target ~/Documents/EECS504_files/psets/pset7/pdfs
+    python ipynb_to_pdf.py --source ~/Documents/EECS504_files/psets/pset7/submissions_renamed --target ~/Documents/EECS504_files/psets/pset7/pdfs
+    python ipynb_to_pdf.py --source ~/Documents/EECS504_files/psets/pset8/submissions_renamed --target ~/Documents/EECS504_files/psets/pset8/pdfs
+    python ipynb_to_pdf.py --source ~/Documents/EECS504_files/psets/pset10/submissions_renamed --target ~/Documents/EECS504_files/psets/pset10/pdfs
 '''
 
 import os
 import argparse
 import tqdm
+
+# python ipynb_to_pdf.py --source ~/Documents/EECS504_files/psets/pset9/submissions_renamed --target ~/Documents/EECS504_files/psets/pset9/pdfs
 
 if __name__=='__main__':
     argparser = argparse.ArgumentParser()

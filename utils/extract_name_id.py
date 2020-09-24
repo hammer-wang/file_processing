@@ -9,8 +9,16 @@ Dependency:
 -- jupyter nbconvert 5.6.0 (this should come with jupyter lab)
 
 Example:
-    python ipynb_to_pdf.py --source ~/Documents/EECS504_files/psets/pset1/submissions --target ~/Documents/EECS504_files/psets/pset1/submissions_renamed
+    python extract_name_id.py --source ~/Documents/EECS504_files/psets/pset1/submissions --target ~/Documents/EECS504_files/psets/pset1/submissions_renamed
+    python extract_name_id.py --source ~/Documents/EECS504_files/psets/pset5/submissions --target ~/Documents/EECS504_files/psets/pset5/submissions_renamed
+    python extract_name_id.py --source ~/Documents/EECS504_files/psets/pset6/submissions --target ~/Documents/EECS504_files/psets/pset6/submissions_renamed
 """
+
+# python extract_name_id.py --source ~/Documents/EECS504_files/psets/pset6/submissions --target ~/Documents/EECS504_files/psets/pset6/submissions_renamed
+# python extract_name_id.py --source ~/Documents/EECS504_files/psets/pset7/submissions --target ~/Documents/EECS504_files/psets/pset7/submissions_renamed
+# python extract_name_id.py --source ~/Documents/EECS504_files/psets/pset8/submissions --target ~/Documents/EECS504_files/psets/pset8/submissions_renamed
+# python extract_name_id.py --source ~/Documents/EECS504_files/psets/pset9/submissions --target ~/Documents/EECS504_files/psets/pset9/submissions_renamed
+# python extract_name_id.py --source ~/Documents/EECS504_files/psets/pset10/submissions --target ~/Documents/EECS504_files/psets/pset10/submissions_renamed
 
 import os
 import tqdm
@@ -30,7 +38,8 @@ if __name__ == "__main__":
     source = args.source
     target = args.target
     files = os.listdir(source)
-    files.remove(".DS_Store")
+    if ".DS_Store" in files:
+        files.remove(".DS_Store")
     print('Total number of ipynb files {}'.format(len(files)))
 
     if not os.path.exists(target):
@@ -62,8 +71,8 @@ if __name__ == "__main__":
             file_ = re.sub(r"-\d", "", file_)
 
         cmd = 'cp {} {}'.format(os.path.join(source, file), os.path.join(target, file_)).split(' ')
+        # print(cmd)
+        command_run = subprocess.call(cmd)
 
-        try:
-            subprocess.call(cmd)
-        except OSError:
+        if command_run:
             print(cmd)
